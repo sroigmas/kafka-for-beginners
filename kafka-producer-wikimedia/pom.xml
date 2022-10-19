@@ -17,6 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <okhttp.version>4.10.0</okhttp.version>
     <okhttp-eventsource.version>2.7.1</okhttp-eventsource.version>
+    <junit.version>5.9.0</junit.version>
   </properties>
 
   <dependencies>
@@ -29,6 +30,13 @@
       <groupId>com.launchdarkly</groupId>
       <artifactId>okhttp-eventsource</artifactId>
       <version>${okhttp-eventsource.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

@@ -2,7 +2,7 @@ package org.sroigmas.kafka.wikimedia;
 
 import com.launchdarkly.eventsource.EventHandler;
 import com.launchdarkly.eventsource.MessageEvent;
-import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,10 +11,10 @@ public class WikimediaChangeHandler implements EventHandler {
 
   private static final Logger LOG = LoggerFactory.getLogger(
       WikimediaChangeHandler.class.getSimpleName());
-  private final KafkaProducer<String, String> producer;
+  private final Producer<String, String> producer;
   private final String topic;
 
-  public WikimediaChangeHandler(KafkaProducer<String, String> producer, String topic) {
+  public WikimediaChangeHandler(Producer<String, String> producer, String topic) {
     this.producer = producer;
     this.topic = topic;
   }

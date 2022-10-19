@@ -7,6 +7,7 @@ import java.net.URI;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 
@@ -26,7 +27,7 @@ public class WikimediaChangesProducer {
     properties.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32 * 1024));
     properties.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
 
-    KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
+    Producer<String, String> producer = new KafkaProducer<>(properties);
     String topic = "wikimedia_recentchange";
 
     EventHandler eventHandler = new WikimediaChangeHandler(producer, topic);
